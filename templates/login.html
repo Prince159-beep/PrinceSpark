@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register | PrinceSpark</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <form method="POST">
+        <label>Username:</label><br>
+        <input type="text" name="username" required><br>
+        <label>Password:</label><br>
+        <input type="password" name="password" required><br><br>
+        <button type="submit">Register</button>
+    </form>
+    <br>
+    <a href="{{ url_for('login') }}">Login</a> | 
+    <a href="{{ url_for('index') }}">Home</a>
+</body>
+</html>

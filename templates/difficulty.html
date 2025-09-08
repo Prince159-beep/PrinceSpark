@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Difficulty | PrinceSpark</title>
+</head>
+<body>
+    <h1>Select Quiz Difficulty</h1>
+    <a href="{{ url_for('quiz', difficulty='easy') }}">Easy</a><br>
+    <a href="{{ url_for('quiz', difficulty='medium') }}">Medium</a><br>
+    <a href="{{ url_for('quiz', difficulty='hard') }}">Hard</a><br><br>
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+</body>
+</html>

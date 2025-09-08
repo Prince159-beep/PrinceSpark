@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | PrinceSpark</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="neon-text">Welcome, {{ username }}!</h1>
+
+        <div class="dashboard-buttons">
+            <a href="{{ url_for('difficulty') }}" class="btn">Start Quiz</a>
+            <a href="{{ url_for('leaderboard') }}" class="btn">Leaderboard</a>
+            <a href="{{ url_for('logout') }}" class="btn">Logout</a>
+        </div>
+
+        {% if username == 'Prince' %}
+        <!-- Admin Panel link only for admin -->
+        <div class="admin-panel">
+            <a href="{{ url_for('admin') }}" class="btn">Admin Panel</a>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

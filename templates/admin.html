@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel | PrinceSpark</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="neon-text">Admin Panel</h1>
+
+        <h2>Manage Users</h2>
+        <ul>
+            {% for user in users %}
+                <li>{{ user[1] }} <a href="{{ url_for('delete_user', username=user[1]) }}">Delete</a></li>
+            {% endfor %}
+        </ul>
+
+        <h2>Manage Questions</h2>
+        <ul>
+            {% for q in questions %}
+                <li>{{ q[1] }} ({{ q[7] }}) 
+                    <a href="{{ url_for('delete_question', question_id=q[0]) }}">Delete</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <a href="{{ url_for('dashboard') }}" class="btn">Back to Dashboard</a>
+    </div>
+</body>
+</html>

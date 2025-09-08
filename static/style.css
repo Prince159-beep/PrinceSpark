@@ -1,0 +1,59 @@
+body {
+  background: black;
+  color: white;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.neon-text {
+  color: #ff00ff;
+  text-shadow: 0 0 5px #ff00ff, 0 0 20px #ff00ff;
+  margin-top: 20px;
+}
+
+.card {
+  margin: 30px auto;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px;
+  background: #ff00ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+.btn:hover {
+  background: #ff33ff;
+}
+
+.quiz-card {
+  background: rgba(255, 255, 255, 0.1);
+  margin: 15px auto;
+  padding: 15px;
+  width: 60%;
+  border-radius: 12px;
+}
+
+.leaderboard-table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.leaderboard-table th, .leaderboard-table td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #444;
+}
+.leaderboard-table th {
+  background: #ff00ff;
+}
+.leaderboard-table tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.1);
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz - {{ difficulty|capitalize }}</title>
+</head>
+<body>
+    <h1>{{ difficulty|capitalize }} Quiz</h1>
+
+    <form method="POST" action="{{ url_for('submit_quiz', difficulty=difficulty) }}">
+        {% for q in questions %}
+            <div>
+                <p><b>{{ loop.index }}. {{ q[1] }}</b></p>
+                <label><input type="radio" name="q{{ q[0] }}" value="1"> {{ q[2] }}</label><br>
+                <label><input type="radio" name="q{{ q[0] }}" value="2"> {{ q[3] }}</label><br>
+                <label><input type="radio" name="q{{ q[0] }}" value="3"> {{ q[4] }}</label><br>
+                <label><input type="radio" name="q{{ q[0] }}" value="4"> {{ q[5] }}</label><br>
+            </div>
+            <hr>
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+
+    <br>
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+</body>
+</html>

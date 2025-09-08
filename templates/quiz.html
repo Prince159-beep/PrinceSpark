@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ difficulty|capitalize }} Quiz | PrinceSpark</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1 class="neon-text">{{ difficulty|capitalize }} Quiz ⚡</h1>
+
+    <form method="POST" action="{{ url_for('submit_quiz', difficulty=difficulty) }}">
+        {% for q in questions %}
+        <div class="quiz-card">
+            <p><b>{{ loop.index }}. {{ q[1] }}</b></p>
+            <label><input type="radio" name="q{{ q[0] }}" value="1"> {{ q[2] }}</label><br>
+            <label><input type="radio" name="q{{ q[0] }}" value="2"> {{ q[3] }}</label><br>
+            <label><input type="radio" name="q{{ q[0] }}" value="3"> {{ q[4] }}</label><br>
+            <label><input type="radio" name="q{{ q[0] }}" value="4"> {{ q[5] }}</label><br>
+        </div>
+        <hr>
+        {% endfor %}
+        <button type="submit" class="btn">Submit Quiz</button>
+    </form>
+
+    <br>
+    <a href="{{ url_for('dashboard') }}" class="btn">Back to Dashboard</a>
+</body>
+</html>
