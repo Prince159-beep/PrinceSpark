@@ -1,59 +1,178 @@
+/* =======================
+   General Styles
+======================= */
 body {
-  background: black;
-  color: white;
-  text-align: center;
-  font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    margin: 0;
+    padding: 0;
+    color: #fff;
 }
 
-.neon-text {
-  color: #ff00ff;
-  text-shadow: 0 0 5px #ff00ff, 0 0 20px #ff00ff;
-  margin-top: 20px;
+a {
+    text-decoration: none;
+    color: #fff;
 }
 
+h1, h2, h3, h4 {
+    margin: 10px 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* =======================
+   Navbar / Header
+======================= */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0,0,0,0.7);
+    padding: 10px 20px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+nav a {
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ffea00;
+}
+
+/* =======================
+   Buttons
+======================= */
+button, input[type="submit"] {
+    background: #ff6f61;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover, input[type="submit"]:hover {
+    background: #ff3b2f;
+}
+
+/* =======================
+   Forms
+======================= */
+form {
+    background: rgba(0,0,0,0.4);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+input[type="text"], input[type="password"], select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px 0;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+}
+
+/* =======================
+   Dashboard Cards
+======================= */
 .card {
-  margin: 30px auto;
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    transition: transform 0.3s, background 0.3s;
 }
 
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  margin: 10px;
-  background: #ff00ff;
-  color: white;
-  text-decoration: none;
-  border-radius: 10px;
-  transition: 0.3s;
-}
-.btn:hover {
-  background: #ff33ff;
+.card:hover {
+    transform: scale(1.05);
+    background: rgba(255,255,255,0.2);
 }
 
-.quiz-card {
-  background: rgba(255, 255, 255, 0.1);
-  margin: 15px auto;
-  padding: 15px;
-  width: 60%;
-  border-radius: 12px;
+/* =======================
+   Quiz Page
+======================= */
+.quiz-question {
+    background: rgba(0,0,0,0.4);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
 }
 
-.leaderboard-table {
-  width: 80%;
-  margin: 20px auto;
-  border-collapse: collapse;
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
-  border-radius: 12px;
-  overflow: hidden;
+.quiz-question p {
+    font-weight: bold;
 }
-.leaderboard-table th, .leaderboard-table td {
-  padding: 12px;
-  text-align: center;
-  border: 1px solid #444;
+
+.quiz-question label {
+    display: block;
+    margin: 5px 0;
 }
-.leaderboard-table th {
-  background: #ff00ff;
+
+/* =======================
+   Leaderboard
+======================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
 }
-.leaderboard-table tr:nth-child(even) {
-  background: rgba(255, 255, 255, 0.1);
+
+table, th, td {
+    border: 1px solid rgba(255,255,255,0.5);
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background: rgba(255,255,255,0.2);
+    font-size: 18px;
+}
+
+/* =======================
+   Result Page
+======================= */
+.result {
+    text-align: center;
+    padding: 30px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 15px;
+}
+
+/* =======================
+   Footer
+======================= */
+footer {
+    text-align: center;
+    padding: 15px 0;
+    background: rgba(0,0,0,0.7);
+    margin-top: 20px;
+    border-radius: 10px 10px 0 0;
+}
+
+/* =======================
+   Misc Animations
+======================= */
+button, input[type="submit"], .card {
+    transition: 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
 }
