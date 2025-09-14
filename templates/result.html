@@ -1,26 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Quiz - {{ difficulty|capitalize }}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>{{ difficulty|capitalize }} Quiz</h1>
+    <h1>🎉 Quiz Completed 🎉</h1>
 
-    <form method="POST" action="{{ url_for('submit_quiz', difficulty=difficulty) }}">
-        {% for q in questions %}
-            <div>
-                <p><b>{{ loop.index }}. {{ q[1] }}</b></p>
-                <label><input type="radio" name="q{{ q[0] }}" value="1"> {{ q[2] }}</label><br>
-                <label><input type="radio" name="q{{ q[0] }}" value="2"> {{ q[3] }}</label><br>
-                <label><input type="radio" name="q{{ q[0] }}" value="3"> {{ q[4] }}</label><br>
-                <label><input type="radio" name="q{{ q[0] }}" value="4"> {{ q[5] }}</label><br>
-            </div>
-            <hr>
-        {% endfor %}
-        <button type="submit">Submit</button>
-    </form>
+    <div class="quiz-question">
+        <h2>Your Score:</h2>
+        <p><b>{{ score }}</b> out of <b>{{ total }}</b></p>
+    </div>
 
-    <br>
-    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    <div style="text-align:center; margin-top: 30px;">
+        <a href="{{ url_for('dashboard') }}" class="btn">🏠 Back to Dashboard</a>
+        <a href="{{ url_for('leaderboard') }}" class="btn">📊 View Leaderboard</a>
+        <a href="{{ url_for('difficulty') }}" class="btn">🎯 Try Again</a>
+    </div>
+
+    <footer>
+        <p>Made with ❤️ at PrinceSpark</p>
+    </footer>
 </body>
 </html>
