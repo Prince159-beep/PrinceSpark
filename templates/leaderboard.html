@@ -1,27 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Leaderboard | PrinceSpark</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leaderboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Leaderboard</h1>
-    <table border="1">
+  <h1>🏆 Leaderboard</h1>
+
+  {% if scores and scores|length > 0 %}
+    <table class="leaderboard-table">
+      <thead>
         <tr>
-            <th>Rank</th>
-            <th>Username</th>
-            <th>Score</th>
-            <th>Difficulty</th>
+          <th>Rank</th>
+          <th>Username</th>
+          <th>Score</th>
         </tr>
-        {% for row in rows %}
+      </thead>
+      <tbody>
+        {% for rank, entry in enumerate(scores, start=1) %}
         <tr>
-            <td>{{ loop.index }}</td>
-            <td>{{ row[0] }}</td>
-            <td>{{ row[1] }}</td>
-            <td>{{ row[2] }}</td>
+          <td>{{ rank }}</td>
+          <td>{{ entry.username }}</td>
+          <td>{{ entry.score }}</td>
         </tr>
         {% endfor %}
+      </tbody>
     </table>
-    <br>
-    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+  {% else %}
+    <p style="text-align:center;">No scores yet—be the first to play!</p>
+  {% endif %}
+
+  <div style="text-align:center; margin-top: 20px;">
+    <a href="{{ url_for('dashboard') }}" class="btn">🏠 Back to Dashboard</a>
+  </div>
+
+  <footer>
+    <p>Made with ❤️ at PrinceSpark</p>
+  </footer>
 </body>
 </html>
