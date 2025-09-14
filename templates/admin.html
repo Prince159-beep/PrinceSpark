@@ -1,31 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Admin Panel | PrinceSpark</title>
+    <title>Admin Panel</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1 class="neon-text">Admin Panel</h1>
+        <h1>Admin Panel</h1>
+        <p>Welcome, <b>{{ username }}</b>!</p>
+
+        <div class="admin-options">
+            <a href="{{ url_for('dashboard') }}" class="btn">Dashboard</a>
+            <a href="{{ url_for('leaderboard') }}" class="btn">View Leaderboard</a>
+            <a href="{{ url_for('difficulty') }}" class="btn">Add/Start Quiz</a>
+            <a href="{{ url_for('logout') }}" class="btn logout-btn">Logout</a>
+        </div>
 
         <h2>Manage Users</h2>
-        <ul>
-            {% for user in users %}
-                <li>{{ user[1] }} <a href="{{ url_for('delete_user', username=user[1]) }}">Delete</a></li>
-            {% endfor %}
-        </ul>
-
-        <h2>Manage Questions</h2>
-        <ul>
-            {% for q in questions %}
-                <li>{{ q[1] }} ({{ q[7] }}) 
-                    <a href="{{ url_for('delete_question', question_id=q[0]) }}">Delete</a>
-                </li>
-            {% endfor %}
-        </ul>
-
-        <a href="{{ url_for('dashboard') }}" class="btn">Back to Dashboard</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user[0] }}</td>
+                    <td>
+                        <!-- Example buttons -->
+                        <a href="#" class="btn small-btn">Edit</a>
+                        <a href="#" class="btn small-btn delete-btn">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
