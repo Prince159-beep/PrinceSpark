@@ -1,13 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>PrinceSpark</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrinceSpark - Welcome</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    /* Extra inline styling for a polished look */
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #4e9af1, #6a5af9);
+      color: #fff;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.2em;
+      margin-bottom: 40px;
+    }
+    .btn {
+      background-color: #fff;
+      color: #4e9af1;
+      border: none;
+      padding: 12px 24px;
+      margin: 10px;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn:hover {
+      background-color: #4e9af1;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    footer {
+      margin-top: 50px;
+      font-size: 0.9em;
+      color: #ddd;
+    }
+  </style>
 </head>
 <body>
-    <h1>Welcome to PrinceSpark ⚡</h1>
-    <a href="{{ url_for('login') }}">Login</a> | 
-    <a href="{{ url_for('register') }}">Register</a> | 
-    <a href="{{ url_for('leaderboard') }}">Leaderboard</a>
+  <h1>Welcome to PrinceSpark 🎉</h1>
+  <p>Your place to challenge your knowledge and have fun with quizzes!</p>
+
+  <a href="{{ url_for('register') }}" class="btn">Register</a>
+  <a href="{{ url_for('login') }}" class="btn">Login</a>
+  <a href="{{ url_for('leaderboard') }}" class="btn">Leaderboard</a>
+
+  <footer>
+    &copy; 2025 PrinceSpark. All rights reserved.
+  </footer>
 </body>
 </html>
