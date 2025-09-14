@@ -91,7 +91,7 @@ def quiz(difficulty):
 
     conn = sqlite3.connect("quiz.db")
     c = conn.cursor()
-    c.execute("SELECT id, question, option1, option2, option3, option4 FROM questions WHERE difficulty=? ORDER BY RANDOM() LIMIT 10", (difficulty,))
+    c.execute("SELECT id, question, option1, option2, option3, option4 FROM questions WHERE difficulty=? ORDER BY RANDOM(), (difficulty,))
     questions = c.fetchall()
     conn.close()
 
