@@ -133,9 +133,19 @@ def submit_quiz(difficulty):
 # ---------- Leaderboard ----------
 @app.route("/leaderboard")
 def leaderboard():
+    if "username" not in session:
+        return redirect(url_for("login"))
+
     conn = sqlite3.connect("quiz.db")
     c = conn.cursor()
-    c.execute("SELECT username, MAX(score), difficulty FROM scores GROUP BY username, difficulty ORDER BY MAX(score) DESC LIMIT 10")
+    # Get top 10 scores per user
+    c.execute("""
+        SELECT username, MAX(score) as top_score, difficulty 
+        FROM scores 
+        GROUP BY username 
+        ORDER BY top_score DESC 
+        LIMIT 10
+    """)
     rows = c.fetchall()
     conn.close()
 
