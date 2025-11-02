@@ -158,6 +158,42 @@ def logout():
     session.pop("username", None)
     return redirect(url_for("index"))
 
+# ---------- Change Password ----------
+@app.route("/change_password", methods=["GET", "POST"])
+def change_password():
+    if "username" not in session:
+        return redirect(url_for("login"))
+
+    if request.method == "POST":
+        username = session["username"]
+        current_pw = request.form["current_password"]
+        new_pw = request.form["new_password"]
+        confirm_pw = request.form["confirm_password"]
+
+        conn = sqlite3.connect("quiz.db")
+        c = conn.cursor()
+        c.execute("SELECT password FROM users WHERE username=?", (username,))
+        row = c.fetchone()
+
+        # Check if current password is correct
+        if not row or row[0] != current_pw:
+            conn.close()
+            return "❌ Current password is incorrect!"
+
+        # Check if new passwords match
+        if new_pw != confirm_pw:
+            conn.close()
+            return "⚠️ New passwords do not match!"
+
+        # Update new password
+        c.execute("UPDATE users SET password=? WHERE username=?", (new_pw, username))
+        conn.commit()
+        conn.close()
+
+        return "✅ Password changed successfully!"
+
+    return render_template("change_password.html")
+
 
 if __name__ == "__main__":
     import os
