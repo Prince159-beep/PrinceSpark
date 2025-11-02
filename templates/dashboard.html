@@ -13,7 +13,10 @@
             <a href="{{ url_for('difficulty') }}" class="btn">Start Quiz</a>
             <a href="{{ url_for('leaderboard') }}" class="btn">Leaderboard</a>
             <a href="{{ url_for('logout') }}" class="btn">Logout</a>
-            <a href="{{ url_for('change_password') }}">Change Password</a>
+            <a href="{{ url_for('change_password') }}"
+   style="display:inline-block; background-color:#00ffff; color:#000; padding:10px 15px; border-radius:8px; text-decoration:none; font-weight:bold; margin-left:10px;">
+   Change Password
+            </a>
         </div>
 
         {% if username == 'Prince' %}
